@@ -1,0 +1,84 @@
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 这里 0.5 是透明度，可以根据需求调整，范围 0 - 1  */
+    z-index: -1; /* 调整层级，确保蒙板在背景之上、内容之下，可根据实际情况调整 */
+}
+body {
+    margin: 0; /* 清除默认边距 */
+    min-height: 100vh;
+    background-size: 100% 100%; /* 背景图宽高与页面完全一致 */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+   }
+   .text h1,
+   .text p,
+   .text small,
+   .text h2 {
+       position: relative;
+       z-index: 1; /* 文字部分层级设低，让图片覆盖在上方 */
+   }
+.text h1, .text p,.text small{
+	z-index: 1;
+	color: #9da1d1;	
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+.text h1{
+	font-size: 50px;
+}
+.text small{
+	font-size: 30px;
+}
+.text .p1{
+	font-size: 15px;
+	color: #9da1d1;
+	text-decoration: none;
+}
+.text .p1 :active{
+	color: #000;
+}
+
+.text h2 .a1{
+	
+	color: #9da1d1;
+	text-decoration:none;
+	font-size: 30px;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto; /* 定义两行，自动分配高度 */
+    grid-template-columns: 1fr; /* 一列 */
+    gap: 10px; /* 子元素间的间距，可按需调整 */
+    align-items: center; /* 垂直居中对齐子元素 */
+    justify-items: center; /* 水平居中对齐子元素 */
+}
+.round-img {
+	width: 160px; /* 可按需调整图片宽度 */
+	height: 160px; /* 可按需调整图片高度 */
+	border-radius: 50%; /* 将元素边框圆角设为50%，实现圆形效果 */
+	object-fit: cover; /* 确保图片完整显示且适应容器，不拉伸变形 */
+	position: fixed; /* 关键，设置为固定定位 */
+	top: 50%; /* 距离顶部50% */
+	left: 50%; /* 距离左侧50% */
+	transform: translate(-50%, -50%); /* 往上和往左移动自身一半的距离，实现居中 */
+}
+h1 {
+    line-height: 1; /* 可按需调整数值，数值越小，行高越窄，元素越紧凑，默认一般是 1.2 左右  */
+}
+#content-container {
+    position: relative; /* 给父容器设置相对定位，作为参考基准 */
+}
+.round-img {
+    position: absolute;
+    top: 150px; /* 让图片在垂直方向顶部对齐 */
+    z-index: 1; /* 设置较高层级，确保在文字上方显示 */
+}

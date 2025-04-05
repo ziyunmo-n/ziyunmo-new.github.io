@@ -1,0 +1,13 @@
+#time-display {
+            position: absolute;
+            top: 10;
+            left: 10;
+            background-color: lightgray;
+            padding: 20px;
+			width: 150px;
+			height: 60px;
+			font-size: 35px;
+			background-color: rgba(255, 255, 255, 0);
+			z-index: 1;
+			color: #9da1d1;
+        }
